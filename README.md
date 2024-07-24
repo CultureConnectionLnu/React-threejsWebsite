@@ -1,9 +1,10 @@
-# r3f-vite-starter
-A boilerplate to build R3F projects
+# r3f-vite-Culture-Connection
+Starting point
 
 ```
-yarn
-yarn dev
+npm install
+
+npm run dev
 ```
 
 
