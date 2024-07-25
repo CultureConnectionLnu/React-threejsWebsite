@@ -1,11 +1,26 @@
-import { OrbitControls } from "@react-three/drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { Model } from "./CultureConnectionModel";
+import { motion } from "framer-motion-3d";
 
-const Model = () => {
-  const gltf = useLoader(GLTFLoader, "/path/to/model.glb");
-  return <primitive object={gltf.scene} />;
-};
+export const Experience = (props) => {
+  const { section } = props;
 
-export const Experience = () => {
-  return <></>;
+  return (
+    <>
+      <ambientLight intensity={10} />
+      <motion.group
+        position={[0, 0, 0]}
+        scale={[0.5, 0.5, 0.5]}
+        rotation={[30, 0, 0]}
+        animate={{
+          rotateY: section * 10, 
+        }}
+        transition={{
+          duration: 2,
+          ease: "easeInOut",
+        }}
+      >
+        <Model />
+      </motion.group>
+    </>
+  );
 };
