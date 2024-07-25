@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
 import { Scroll, ScrollControls } from "@react-three/drei";
+import { Interface } from "./components/Interface";
 <link href="./output.css" rel="stylesheet"></link>;
 
 function App() {
@@ -10,10 +11,7 @@ function App() {
       <ScrollControls pages={5} damping={0.1}>
         <Experience />
         <Scroll html>
-          <h1 class="text-3xl font-bold underline col-span-1 to-sky-600">
-            Culture Connection!
-          </h1>
-          ;
+          <Interface />
         </Scroll>
       </ScrollControls>
     </Canvas>

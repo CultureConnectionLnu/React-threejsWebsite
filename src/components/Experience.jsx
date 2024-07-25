@@ -9,7 +9,6 @@ const Model = () => {
 export const Experience = () => {
   return (
     <>
-      <OrbitControls />
       <mesh>
         <boxGeometry />
         <meshNormalMaterial />
