@@ -10,6 +10,9 @@ export const ScrollManager = (props) => {
   const lastScroll = useRef(0);
   const isAnimation = useRef(false);
 
+  data.fill.classList.add("top-0");
+  data.fill.classList.add("absolute");
+
   useEffect(() => {
     gsap.to(data.el, {
       duration: 1,
@@ -19,8 +22,8 @@ export const ScrollManager = (props) => {
       },
       onComplete: () => {
         isAnimation.current = false;
-      }
-    })
+      },
+    });
   }, [section]);
 
   useFrame(() => {
@@ -32,16 +35,17 @@ export const ScrollManager = (props) => {
     const curSection = math.floor(data.scroll.current * data.pages);
     if (data.scroll.current > lastScroll.current && curSection === 0) {
       onSectionChange(1);
-      console.log(data.scroll)
+      console.log(data.scroll);
     }
     if (
       data.scroll.current < lastScroll.current &&
       data.scroll.current < 1 / (data.pages - 1)
     ) {
       onSectionChange(0);
-      console.log(data.scroll)
+      console.log(data.scroll);
     }
     lastScroll.current = data.scroll.current;
+    console.log("Last scroll" + lastScroll.current);
   });
   return null;
 };

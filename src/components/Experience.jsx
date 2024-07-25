@@ -7,12 +7,5 @@ const Model = () => {
 };
 
 export const Experience = () => {
-  return (
-    <>
-      <mesh>
-        <boxGeometry />
-        <meshNormalMaterial />
-      </mesh>
-    </>
-  );
+  return <></>;
 };
