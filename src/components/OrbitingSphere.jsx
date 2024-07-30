@@ -1,8 +1,8 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Html } from "@react-three/drei";
+import { Billboard, Text } from "@react-three/drei";
 
-const OrbitingSphere = ({ name, index, color, curve, speed }) => {
+const OrbitingSphere = ({ name,color, curve, speed }) => {
   const ref = useRef();
 
   useFrame(() => {
@@ -26,6 +26,11 @@ const OrbitingSphere = ({ name, index, color, curve, speed }) => {
         <sphereGeometry args={[0.3, 32, 32]} />
         <meshStandardMaterial color={color} />
       </mesh>
+      <Billboard>
+        <Text position={[0, 0.45, 0]} fontSize={0.3} color="#FFFFFF" anchorX="top" anchorY="middle">
+          {name}
+        </Text>
+      </Billboard>
     </group>
   );
 };
