@@ -5,7 +5,7 @@ import OrbitingSphere from "./OrbitingSphere"; // Use OrbitingSphere for text
 import { CatmullRomCurve3, Vector3 } from "three";
 import { Line } from "@react-three/drei";
 
-const pageNames = ["Events", "Social Media", "Weekly", "Sponsors"];
+const pageNames = ["Weekly", "Social Media", "Events", "Sponsors"];
 const colors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A1"];
 const orbitRadius = [1.6, 2.3, 3, 3.7]; // Semi-major axis lengths
 const orbitMinorRadius = [0.5, 0.8, 0.9, 1.1]; // Semi-minor axis lengths
