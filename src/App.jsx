@@ -1,10 +1,10 @@
+import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import Experience from "./components/Experience";
 import { Scroll, ScrollControls } from "@react-three/drei";
+import Experience from "./components/Experience";
 import { Interface } from "./components/Interface";
-import { useState } from "react";
 import { ScrollManager } from "./components/ScrollManager";
-<link href="./output.css" rel="stylesheet"></link>;
+import './index.css';
 
 function App() {
   const [section, setSection] = useState(0);
@@ -14,7 +14,7 @@ function App() {
       <color attach="background" args={["#8960F2"]} />
       <ScrollControls pages={5} damping={0.1}>
         <ScrollManager section={section} onSectionChange={setSection} />
-        <Experience section={section} />
+        <Experience section={section} setSection={setSection} />
         <Scroll html>
           <Interface />
         </Scroll>

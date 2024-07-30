@@ -12,7 +12,7 @@ const orbitMinorRadius = [0.5, 0.8, 0.9, 1.1]; // Semi-minor axis lengths
 const speeds = [0.00085, 0.00087, 0.00089, 0.00081]; // Different speeds for variety
 const heightVariations = [2.5, 3.2, 3.6, 4.3]; // Different height variations for 3D effect
 
-const Experience = ({ section }) => {
+const Experience = ({ section, setSection }) => {
   const curves = useMemo(() => {
     return pageNames.map((_, index) => {
       const points = new Array(100).fill(0).map((_, i) => {
@@ -25,6 +25,10 @@ const Experience = ({ section }) => {
       return new CatmullRomCurve3(points, true);
     });
   }, []);
+
+  const handleClick = (index) => {
+    setSection(index + 1);
+  };
 
   return (
     <>
@@ -53,10 +57,11 @@ const Experience = ({ section }) => {
           />
           <OrbitingSphere
             name={name}
-            index={index}
             color={colors[index]}
             curve={curves[index]}
             speed={speeds[index]}
+            onClick={handleClick}
+            index={index}
           />
         </React.Fragment>
       ))}
