@@ -37,33 +37,35 @@ const Experience = ({ section, setSection }) => {
         position={[0, 0, 0]}
         scale={[0.5, 0.5, 0.5]}
         rotation={[30, 0, 0]}
-        animate={{
-          rotateY: section * 10,
-        }}
-        transition={{
-          duration: 2,
-          ease: "easeInOut",
-        }}
       >
-        <Model />
+        <Model section={section} />
       </motion.group>
 
       {pageNames.map((name, index) => (
-        <React.Fragment key={index}>
-          <Line
-            points={curves[index].getPoints(100)}
-            color={colors[index]}
-            lineWidth={1}
-          />
-          <OrbitingSphere
-            name={name}
-            color={colors[index]}
-            curve={curves[index]}
-            speed={speeds[index]}
-            onClick={handleClick}
-            index={index}
-          />
-        </React.Fragment>
+        <motion.group
+          animate={{
+            y: section === 0 ? 0 : 10,
+          }}
+          transition={{
+            duration: 2,
+          }}
+        >
+          <React.Fragment key={index}>
+            <Line
+              points={curves[index].getPoints(100)}
+              color={colors[index]}
+              lineWidth={1}
+            />
+            <OrbitingSphere
+              name={name}
+              color={colors[index]}
+              curve={curves[index]}
+              speed={speeds[index]}
+              onClick={handleClick}
+              index={index}
+            />
+          </React.Fragment>
+        </motion.group>
       ))}
     </>
   );
