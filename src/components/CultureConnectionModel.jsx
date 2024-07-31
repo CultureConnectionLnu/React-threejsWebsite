@@ -6,6 +6,7 @@ import { motion } from "framer-motion-3d";
 export function Model(props) {
   const { nodes } = useGLTF("models/cultureConnection2.glb");
   const { section } = props;
+
   // Create new materials
   const greenMaterial = new THREE.MeshStandardMaterial({ color: "green" });
   const blueMaterial = new THREE.MeshStandardMaterial({ color: "blue" });
@@ -19,11 +20,17 @@ export function Model(props) {
     <motion.group
       {...props}
       dispose={null}
+      rotation={[0, 0, 0]}
       animate={{
         y: section === 0 ? 0 : 10,
+        z: section === 0 ? 0 : 10,
+        rotateY: [-0.71 , 0.71],
       }}
       transition={{
-        duration: 2,
+        y: { duration: 2 },
+        z: { duration: 2 },
+        rotateY: { repeat: Infinity, repeatType: "mirror", duration: 8 },
+        ease: "easeInOut"
       }}
     >
       <motion.group
