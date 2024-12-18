@@ -10,8 +10,12 @@ function App() {
   const [section, setSection] = useState(0);
 
   return (
-    <Canvas shadows camera={{ position: [0, 8, 0], fov: 50 }}>
-      <color attach="background" args={["#8960F2"]} />
+    <Canvas 
+      shadows 
+      camera={{ position: [0, 8, 0], fov: 50 }} 
+      gl={{ alpha: true }}
+      style={{ background: "transparent" }}
+    >
       <ScrollControls pages={5} damping={0.1}>
         <ScrollManager section={section} onSectionChange={setSection} />
         <Scroll>
